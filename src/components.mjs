@@ -6,13 +6,22 @@ const manifest = JSON.parse(readFileSync(new URL('./img-manifest.json', import.m
 
 // ---------- Images ----------
 export const imgSrc = (name) => asset(`${manifest[name]?.dir || 'img'}/${name}.webp`);
-export const picture = (name, alt, { cls = '', eager = false, sizes = '(min-width: 900px) 600px, 100vw' } = {}) => {
+export const picture = (name, alt, { cls = '', eager = false, sizes = '(min-width: 900px) 600px, 100vw', crop = null } = {}) => {
   const m = manifest[name];
   const dir = m?.dir || 'img';
   const src = asset(`${dir}/${name}.webp`);
-  const srcset = m?.s ? ` srcset="${asset(`${dir}/${name}-${m.s}.webp`)} ${m.s}w, ${src} ${m.w}w" sizes="${sizes}"` : '';
+  const cropped = crop && m?.c?.[crop]?.length;
+  const srcset = cropped ? ` srcset="${m.c[crop].map((x) => `${asset(`${dir}/${name}-c${crop}-${x}.webp`)} ${x}w`).join(', ')}, ${src} ${m.w}w" sizes="${sizes}"` : m?.v?.length ? ` srcset="${m.v.map((x) => `${asset(`${dir}/${name}-${x}.webp`)} ${x}w`).join(', ')}, ${src} ${m.w}w" sizes="${sizes}"` : '';
   const dim = m ? ` width="${m.w}" height="${m.h}"` : '';
   return `<img${cls ? ` class="${cls}"` : ''} src="${src}"${srcset} alt="${esc(alt)}"${dim} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+};
+
+// <link rel="preload"> de l'image principale (LCP) avec son srcset, pour qu'elle soit découverte dès le HTML.
+export const imgPreload = (name, sizes) => {
+  const m = manifest[name];
+  const dir = m?.dir || 'img';
+  const srcset = (m?.v || []).map((x) => `${asset(`${dir}/${name}-${x}.webp`)} ${x}w`).concat(`${asset(`${dir}/${name}.webp`)} ${m.w}w`).join(', ');
+  return `<link rel="preload" as="image" href="${asset(`${dir}/${name}.webp`)}" imagesrcset="${srcset}" imagesizes="${sizes}" fetchpriority="high">`;
 };
 
 export const kicker = (text, light = false) => `<p class="kicker${light ? ' kicker-light' : ''}">${text}</p>`;
@@ -95,7 +104,7 @@ export function solutionsSection({ title, intro = true } = {}) {
         .map(
           (s, i) => `<li class="sol-card" data-reveal>
         <a href="${s.slug}.html">
-          <div class="sol-media">${picture(s.image, s.imageAlt, { sizes: '(min-width: 900px) 560px, 100vw' })}<span class="sol-ico">${icon(s.icon)}</span></div>
+          <div class="sol-media">${picture(s.image, s.imageAlt, { crop: '16-10', sizes: '(min-width: 1300px) 590px, (min-width: 960px) 46vw, calc(100vw - 36px)' })}<span class="sol-ico">${icon(s.icon)}</span></div>
           <div class="sol-body">
             <span class="sol-n">0${i + 1}</span>
             <h3>${s.title}</h3>
@@ -119,7 +128,7 @@ export function productCard(p) {
   const fam = (productFamilies.find(([k]) => k === p.family) || [])[1];
   return `<article class="prod" id="${p.slug}" data-family="${p.family}">
   <div class="prod-plate ${p.fit}">
-    ${picture(p.image, p.name, { cls: `prod-img ${p.fit}`, sizes: '(min-width: 900px) 360px, 90vw' })}
+    ${picture(p.image, p.name, { cls: `prod-img ${p.fit}`, sizes: p.fit === 'contain' ? '(min-width: 900px) 240px, 45vw' : '(min-width: 900px) 380px, 90vw' })}
     <span class="prod-badge">${esc(p.badge)}</span>
   </div>
   <div class="prod-body">
@@ -270,7 +279,7 @@ export function statsBand() {
 export function projectCard(p) {
   return `<article class="proj-card" data-reveal>
   <a href="projet-${p.slug}.html">
-    <div class="proj-media">${p.image ? picture(p.image, p.title, { sizes: '(min-width: 900px) 400px, 100vw' }) : projectVisual(p)}<span class="tag">${esc(p.category)}</span></div>
+    <div class="proj-media">${p.image ? picture(p.image, p.title, { crop: '4-3', sizes: '(min-width: 1300px) 390px, (min-width: 700px) 45vw, calc(100vw - 36px)' }) : projectVisual(p)}<span class="tag">${esc(p.category)}</span></div>
     <div class="proj-body">
       <h3>${esc(p.title)}</h3>
       <p>${esc(p.summary)}</p>
@@ -306,7 +315,7 @@ export function videoCard(v) {
 
 export const gallery = (names, altPrefix) =>
   `<ul class="gallery">${names
-    .map((n, i) => `<li data-reveal><a href="${imgSrc(n)}" data-lightbox aria-label="${t('Agrandir la photo', 'Enlarge photo')} ${i + 1}">${picture(n, `${altPrefix} — ${t('photo', 'photo')} ${i + 1}`, { sizes: '(min-width: 900px) 380px, 50vw' })}<span class="g-zoom">${icon('expand')}</span></a></li>`)
+    .map((n, i) => `<li data-reveal><a href="${imgSrc(n)}" data-lightbox aria-label="${t('Agrandir la photo', 'Enlarge photo')} ${i + 1}">${picture(n, `${altPrefix} — ${t('photo', 'photo')} ${i + 1}`, { crop: '4-3', sizes: '(min-width: 1300px) 290px, (min-width: 700px) 30vw, 50vw' })}<span class="g-zoom">${icon('expand')}</span></a></li>`)
     .join('')}</ul>`;
 
 // ---------- Méthode / partenaires / dirigeant / CTA ----------
@@ -387,7 +396,7 @@ export function lightboxShell() {
 const dateLabel = (d) => new Date(d).toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
 export const postCard = (a) => `<article class="post-card" data-reveal>
-  <a class="post-media" href="blog-${a.slug}.html" tabindex="-1" aria-hidden="true">${picture(a.image, a.imageAlt, { sizes: '(min-width: 900px) 380px, 100vw' })}</a>
+  <a class="post-media" href="blog-${a.slug}.html" tabindex="-1" aria-hidden="true">${picture(a.image, a.imageAlt, { crop: '3-2', sizes: '(min-width: 1300px) 390px, (min-width: 700px) 45vw, calc(100vw - 36px)' })}</a>
   <div class="post-body">
     <p class="post-meta">${dateLabel(a.date)} · ${esc(a.tags[0] || '')}</p>
     <h3><a href="blog-${a.slug}.html">${esc(a.title)}</a></h3>

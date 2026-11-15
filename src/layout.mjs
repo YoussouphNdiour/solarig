@@ -1,3 +1,5 @@
+import { readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { company, services, products, productFamilies, lang, t } from './data.mjs';
 
 const ASSET_V = Date.now().toString(36);
@@ -11,7 +13,16 @@ export const esc = (s) =>
 
 // Les pages anglaises sont dans /en/ : les fichiers communs se trouvent un dossier au-dessus.
 export const base = () => (lang === 'en' ? '../' : '');
-export const asset = (p) => `${base()}assets/${p}`;
+// Les images, logos, vidéos et fiches reçoivent ?v=<empreinte du fichier> : cache d'un an sans risque de version périmée.
+const hashes = new Map();
+const fileHash = (p) => {
+  if (!hashes.has(p)) {
+    const f = new URL(`../public/assets/${p}`, import.meta.url);
+    hashes.set(p, existsSync(f) ? createHash('md5').update(readFileSync(f)).digest('hex').slice(0, 8) : '');
+  }
+  return hashes.get(p);
+};
+export const asset = (p) => `${base()}assets/${p}${/^(img|fiches|brand|logos|video)\//.test(p) && fileHash(p) ? `?v=${fileHash(p)}` : ''}`;
 
 export const waLink = (text = t('Bonjour SOLARIG, je souhaite un devis.', 'Hello SOLARIG, I would like a quote.')) =>
   `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(text)}`;
@@ -85,7 +96,7 @@ function header(active, file, alt) {
 <header class="site-header">
   <div class="wrap header-in">
     <a class="brand" href="index.html" aria-label="${t('SOLARIG, accueil', 'SOLARIG, home')}">
-      <img src="${asset('brand/solarig-logo-vert.webp')}" alt="SOLARIG" width="136" height="34">
+      <img src="${asset('brand/solarig-logo-vert-272.webp')}" alt="SOLARIG" width="136" height="34">
     </a>
     <nav class="main-nav" aria-label="${t('Navigation principale', 'Main navigation')}">
       <ul class="nav-list">${items}</ul>
@@ -116,7 +127,7 @@ function footer() {
   <div class="wrap">
     <div class="f-top">
       <div class="f-brand">
-        <img src="${asset('brand/solarig-logo-blanc.webp')}" alt="SOLARIG" width="190" height="47" loading="lazy">
+        <img src="${asset('brand/solarig-logo-blanc-380.webp')}" alt="SOLARIG" width="190" height="47" loading="lazy">
         <p class="f-slogan">${company.slogan}.</p>
         <p>${t("Importateur, fournisseur et installateur de solutions solaires : pompage solaire, installations résidentielles et professionnelles, panneaux, câbles, colonnes, onduleurs et batteries.", 'Importer, supplier and installer of solar solutions: solar pumping, residential and professional installations, panels, cables, pipes, inverters and batteries.')}</p>
         <a class="btn btn-wa" href="${waLink()}" target="_blank" rel="noopener">${icon('chat')} ${t('Écrire sur WhatsApp', 'Message us on WhatsApp')}</a>
@@ -287,14 +298,14 @@ export function projectJsonLd(p) {
   });
 }
 
-export function page({ file, title, description, active, body, image = null, home = false, noindex = false, ld = null, alt = null }) {
+export function page({ file, title, description, active, body, image = null, home = false, noindex = false, ld = null, alt = null, preload = '' }) {
   const fullTitle = home ? title : `${title} | SOLARIG`;
   const pathOf = (f) => (f === 'index.html' ? '' : f);
   const urlFr = `${company.url}/${pathOf(alt?.fr || file)}`;
   const urlEn = `${company.url}/en/${pathOf(alt?.en || file)}`;
   const canonical = lang === 'en' ? urlEn : urlFr;
   const ogImage = image ? `${company.url}/assets/img/${image}.webp` : `${company.url}/assets/brand/og.jpg`;
-  const css = INLINE_CSS.replaceAll('{{BASE}}', base());
+  const css = INLINE_CSS.replace(/\{\{BASE\}\}assets\/([\w\/.-]+)/g, (_, p) => asset(p));
   return `<!doctype html>
 <html lang="${lang}">
 <head>
@@ -326,6 +337,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots" cont
 <link rel="apple-touch-icon" href="${asset('brand/favicon-180.png')}">
 <link rel="preload" href="${asset('fonts/sora-latin-wght-normal.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${asset('fonts/manrope-latin-wght-normal.woff2')}" as="font" type="font/woff2" crossorigin>
+${preload}
 <style>${css}</style>
 ${home ? `<script type="application/ld+json">${jsonLd()}</script>` : ''}
 ${ld ? `<script type="application/ld+json">${ld}</script>` : ''}

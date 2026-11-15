@@ -8,6 +8,7 @@ import {
   faqGroups, lightboxShell, pageHero, kicker, picture, projectVisual, postCard, blogTeaser, blogIndexBody, articleBody,
 } from './src/components.mjs';
 import { getArticles, blogFr, blogEn } from './src/blog.mjs';
+import { imgPreload } from './src/components.mjs';
 
 const prefix = () => `${company.url}${lang === 'en' ? '/en' : ''}`;
 const crumbLd = (items) => breadcrumbJsonLd([{ name: t('Accueil', 'Home'), url: `${prefix()}/` }, ...items.map(([name, file]) => ({ name, url: `${prefix()}/${file}` }))]);
@@ -40,6 +41,7 @@ function buildPages() {
   // ---------- Accueil ----------
   add('index.html', {
     home: true,
+    preload: imgPreload('champ-afriagro', '(min-width: 900px) 520px, 100vw'),
     active: 'home',
     image: 'champ-afriagro',
     title: t('SOLARIG – Énergisez le Sénégal avec le solaire | Pompage solaire, pompes, panneaux', 'SOLARIG – Power Senegal with solar | Solar pumping, pumps, panels'),
