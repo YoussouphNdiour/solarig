@@ -44,12 +44,24 @@ Autres gammes disponibles sur demande : pompes DC, AC, électriques avec variate
 Clients : Senico, Patisen, Terranga Farms Sénégal, GRIPS, MP Energy, Tumiqui Japon.
 Partenaires et institutions : Senelec, ANER, ISEP Thiès, Eranove, Felicity Solar, SolarX, Infranergy, Afreenergy, Deye.
 
+## Blog — guides pratiques
+
+- [Comment choisir sa pompe solaire pour un forage : le guide en 5 étapes](https://www.solarig.sn/blog-choisir-pompe-solaire-forage-guide.html) — Volume d'eau, hauteur manométrique, débit du forage, type d'alimentation : les critères pour choisir la bonne pompe solaire, avec les références du catalogue SOLARIG.
+- [Pompe solaire AC, DC ou hybride AC/DC : quelle différence et laquelle choisir ?](https://www.solarig.sn/blog-pompe-ac-dc-hybride-difference.html) — Une pompe DC se branche sur les panneaux, une pompe AC demande un variateur, une pompe hybride accepte les deux. Comparatif et règles de choix avec les modèles SOLARIG.
+- [Dimensionner un pompage solaire : exemple chiffré pas à pas](https://www.solarig.sn/blog-dimensionner-pompage-solaire-exemple-chiffre.html) — De 40 m³/jour à 45 m de hauteur à la pompe du catalogue : la méthode de calcul de la puissance solaire, du débit de pointe et de la pompe, avec deux exemples et des chantiers réels.
+- [Pompage solaire : stocker l'eau ou l'électricité (batteries) ?](https://www.solarig.sn/blog-stocker-eau-ou-batterie-pompage-solaire.html) — Pourquoi un bassin ou un château d'eau vaut mieux qu'un banc de batteries pour un pompage solaire, comment dimensionner le réservoir et dans quels cas une batterie reste utile.
+- [Combien d'eau pour le maraîchage et l'élevage ? Convertir vos besoins en pompage solaire](https://www.solarig.sn/blog-besoins-en-eau-maraichage-elevage-pompage-solaire.html) — Ordres de grandeur des besoins en eau d'un hectare de maraîchage, d'un troupeau de bovins ou de petits ruminants, et méthode pour les transformer en volume journalier avant de dimensionner un pompage solaire.
+- [Installation solaire résidentielle : onduleur hybride, batterie lithium et coffret de protection](https://www.solarig.sn/blog-installation-solaire-residentielle-onduleur-hybride-batterie-lithium.html) — Comment fonctionne une installation solaire pour une maison, comment estimer sa consommation et dimensionner panneaux et batterie, avec l'exemple réel d'une installation de 5,8 kWc à Diamaguène (Thiès).
+- [Panneaux solaires bifaciaux : principe, gain réel et quand les choisir](https://www.solarig.sn/blog-panneaux-solaires-bifaciaux-avantages.html) — Un panneau bifacial produit sur ses deux faces. Quel gain attendre, quel rôle jouent le sol et la structure, et dans quels cas le choisir pour un champ au sol, un pompage solaire ou une toiture.
+- [Colonnes PVC, câbles submersibles et entretien d'un forage solaire : le guide pratique](https://www.solarig.sn/blog-colonnes-pvc-cables-submersibles-entretien-forage.html) — Comment choisir les colonnes PVC filetées et le câble submersible d'un forage, quelles précautions prendre avec la pompe (sable, pH, température, marche à sec) et la checklist d'entretien d'un pompage solaire.
+
 ## Pages utiles
 
 - [Accueil](https://www.solarig.sn/)
 - [Catalogue](https://www.solarig.sn/catalogue.html)
 - [Pompage solaire et outil de pré-dimensionnement](https://www.solarig.sn/pompage-solaire.html#simulateur)
 - [Réalisations](https://www.solarig.sn/realisations.html)
+- [Blog](https://www.solarig.sn/blog.html)
 - [FAQ](https://www.solarig.sn/faq.html)
 - [Agence de Dakar](https://www.solarig.sn/dakar.html) · [Agence de Thiès](https://www.solarig.sn/thies.html) · [Agence de Tivaouane](https://www.solarig.sn/tivaouane.html)
 - [Contact et devis](https://www.solarig.sn/contact.html)

@@ -384,4 +384,72 @@ export function lightboxShell() {
   return `<dialog class="lightbox" aria-label="${t('Image agrandie', 'Enlarged image')}"><form method="dialog"><button class="lb-close" aria-label="${t('Fermer', 'Close')}">${icon('close')}</button></form><img alt=""></dialog>`;
 }
 
+const dateLabel = (d) => new Date(d).toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+export const postCard = (a) => `<article class="post-card" data-reveal>
+  <a class="post-media" href="blog-${a.slug}.html" tabindex="-1" aria-hidden="true">${picture(a.image, a.imageAlt, { sizes: '(min-width: 900px) 380px, 100vw' })}</a>
+  <div class="post-body">
+    <p class="post-meta">${dateLabel(a.date)} · ${esc(a.tags[0] || '')}</p>
+    <h3><a href="blog-${a.slug}.html">${esc(a.title)}</a></h3>
+    <p>${esc(a.excerpt)}</p>
+    <a class="link-arrow" href="blog-${a.slug}.html">${t("Lire l'article", 'Read the article')} ${icon('arrow')}</a>
+  </div>
+</article>`;
+
+export const blogTeaser = (posts, slugs) => {
+  const list = slugs ? slugs.map((s) => posts.find((p) => p.slug === s)).filter(Boolean) : posts.slice(0, 3);
+  return `<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>${kicker(t('Guides pratiques', 'Practical guides'))}<h2>${t('Comprendre le pompage solaire.', 'Understanding solar pumping.')}</h2></div>
+      <a class="btn btn-outline" href="blog.html">${t('Tous les guides', 'All guides')} ${icon('arrow')}</a>
+    </div>
+    <div class="post-grid">${list.map(postCard).join('')}</div>
+  </div>
+</section>`;
+};
+
+export function blogIndexBody(posts) {
+  return `${pageHero({
+    kickerText: 'Blog',
+    title: t('Guides pratiques : pompage solaire, matériel et installation.', 'Practical guides: solar pumping, equipment and installation.'),
+    lead: t("Choisir une pompe, dimensionner un champ solaire, comprendre l'AC et le DC : les réponses de l'équipe SOLARIG, à partir de nos chantiers et de notre catalogue.", "Choosing a pump, sizing a solar array, understanding AC and DC: answers from the SOLARIG team, based on our projects and catalogue."),
+    image: posts[0].image,
+    alt: posts[0].imageAlt,
+    crumbs: [['Blog']],
+    actions: false,
+  })}
+<section class="section">
+  <div class="wrap"><div class="post-grid">${posts.map(postCard).join('')}</div></div>
+</section>
+${ctaBand()}`;
+}
+
+export function articleBody(a, posts) {
+  const toc = a.sections.map((x, i) => `<li><a href="#s-${i}">${esc(x.h)}</a></li>`).join('');
+  const sections = a.sections.map((x, i) => `<section id="s-${i}"><h2>${esc(x.h)}</h2>${x.body}</section>`).join('');
+  const faqBlock = a.faq?.length
+    ? `<section class="art-faq"><h2>${t('Questions fréquentes', 'Frequently asked questions')}</h2><div class="faq-items">${a.faq.map((f) => `<details class="faq-item"><summary><span>${esc(f.q)}</span>${icon('chevron', 'faq-chev')}</summary><div class="faq-answer"><p>${f.a}</p></div></details>`).join('')}</div></section>`
+    : '';
+  const rel = (a.related || []).map((s) => posts.find((p) => p.slug === s)).filter(Boolean);
+  return `<article class="art">
+  <header class="art-hero">
+    <div class="wrap">
+      ${breadcrumbs([['Blog', 'blog.html'], [a.title]])}
+      ${kicker(a.tags.slice(0, 2).map(esc).join(' · '))}
+      <h1>${esc(a.title)}</h1>
+      <p class="lead">${esc(a.excerpt)}</p>
+      <p class="art-meta"><span>${dateLabel(a.date)}</span><span aria-hidden="true">·</span><span>${t("Par l'équipe SOLARIG", 'By the SOLARIG team')}</span></p>
+    </div>
+  </header>
+  <div class="wrap art-cover">${picture(a.image, a.imageAlt, { eager: true, sizes: '(min-width: 1200px) 1200px, 100vw' })}</div>
+  <div class="wrap art-body">
+    <nav class="art-toc" aria-label="${t('Sommaire', 'Contents')}"><h2>${t('Sommaire', 'In this article')}</h2><ol>${toc}</ol></nav>
+    <div class="art-content">${sections}${faqBlock}</div>
+  </div>
+  ${rel.length ? `<section class="section section-mist"><div class="wrap"><div class="section-head"><div>${kicker(t('À lire aussi', 'Read next'))}<h2>${t('Pour aller plus loin.', 'Keep reading.')}</h2></div></div><div class="post-grid">${rel.map(postCard).join('')}</div></div></section>` : ''}
+</article>
+${ctaBand()}`;
+}
+
 export { aboutValues };

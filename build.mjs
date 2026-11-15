@@ -1,12 +1,13 @@
 // Génère le site SOLARIG : français dans public/, anglais dans public/en/ — usage : node build.mjs
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { company, services, products, productFamilies, projects, faq, cities, aboutValues, steps, lang, t, setLang, nb } from './src/data.mjs';
-import { page, icon, esc, waLink, asset, setInlineCss, breadcrumbJsonLd, faqPageJsonLd, catalogueJsonLd, projectJsonLd } from './src/layout.mjs';
+import { page, icon, esc, waLink, asset, setInlineCss, breadcrumbJsonLd, faqPageJsonLd, catalogueJsonLd, projectJsonLd, articleJsonLd } from './src/layout.mjs';
 import {
   homeHero, ticker, solutionsSection, productCard, productDialog, compareTable, featuredProducts, sizer, whySection,
   statsBand, projectCard, projectsSection, videoCard, gallery, stepsSection, partnersSection, ceoBlock, ctaBand,
-  faqGroups, lightboxShell, pageHero, kicker, picture, projectVisual,
+  faqGroups, lightboxShell, pageHero, kicker, picture, projectVisual, postCard, blogTeaser, blogIndexBody, articleBody,
 } from './src/components.mjs';
+import { getArticles, blogFr, blogEn } from './src/blog.mjs';
 
 const prefix = () => `${company.url}${lang === 'en' ? '/en' : ''}`;
 const crumbLd = (items) => breadcrumbJsonLd([{ name: t('Accueil', 'Home'), url: `${prefix()}/` }, ...items.map(([name, file]) => ({ name, url: `${prefix()}/${file}` }))]);
@@ -33,6 +34,7 @@ const agencyCards = () => `<div class="agency-grid">${company.agencies
 
 function buildPages() {
   const out = [];
+  const posts = getArticles(lang);
   const add = (file, opts) => out.push([file, page({ file, ...opts })]);
 
   // ---------- Accueil ----------
@@ -61,6 +63,7 @@ function buildPages() {
       sizer(),
       statsBand(),
       projectsSection(),
+      blogTeaser(posts),
       whySection(),
       partnersSection(),
       ceoBlock(),
@@ -136,6 +139,7 @@ ${proj ? `<section class="section${s.slug === 'pompage-solaire' ? '' : ' section
   </div>
 </section>` : ''}
 ${s.slug === 'pompage-solaire' || s.slug === 'installation-solaire' ? stepsSection() : ''}
+${s.slug === 'pompage-solaire' ? blogTeaser(posts, ['choisir-pompe-solaire-forage-guide', 'choose-solar-pump-borehole-guide', 'dimensionner-pompage-solaire-exemple-chiffre', 'size-solar-pumping-worked-example', 'pompe-ac-dc-hybride-difference', 'ac-dc-hybrid-solar-pump-difference']) : ''}
 <section class="section">
   <div class="wrap">
     ${kicker(t('Nos autres solutions', 'Our other solutions'))}
@@ -434,6 +438,27 @@ ${ctaBand()}`,
 <section class="section"><div class="wrap prose">${legal}</div></section>`,
   });
 
+  // ---------- Blog ----------
+  add('blog.html', {
+    active: '',
+    image: posts[0].image,
+    title: t("Blog : guides sur le pompage solaire, les pompes et l'installation", 'Blog: guides on solar pumping, pumps and installation'),
+    description: t("Guides pratiques SOLARIG : choisir une pompe solaire, dimensionner un pompage, AC ou DC, stockage de l'eau, installation résidentielle, panneaux bifaciaux.", 'Practical SOLARIG guides: choosing a solar pump, sizing a pumping system, AC or DC, water storage, residential installation, bifacial panels.'),
+    ld: crumbLd([['Blog', 'blog.html']]),
+    body: blogIndexBody(posts),
+  });
+  posts.forEach((a, i) => {
+    add(`blog-${a.slug}.html`, {
+      active: '',
+      alt: { fr: `blog-${blogFr[i].slug}.html`, en: `blog-${blogEn[i].slug}.html` },
+      image: a.image,
+      title: a.title,
+      description: a.excerpt,
+      ld: articleJsonLd(a),
+      body: articleBody(a, posts),
+    });
+  });
+
   // ---------- 404 ----------
   add('404.html', {
     active: '',
@@ -485,10 +510,10 @@ console.log(`${total} pages générées (français dans public/, anglais dans pu
 setLang('fr');
 const today = new Date().toISOString().slice(0, 10);
 const serviceFiles = services.map((s) => `${s.slug}.html`);
-const priority = (f) => f === 'index.html' ? '1.0' : serviceFiles.includes(f) || f === 'catalogue.html' ? '0.9' : f.startsWith('projet-') || f === 'realisations.html' || f === 'dakar.html' || f === 'thies.html' || f === 'tivaouane.html' ? '0.8' : /404|mentions-legales/.test(f) ? '0.3' : '0.6';
-const changefreq = (f) => f === 'index.html' || f === 'catalogue.html' ? 'weekly' : f === 'mentions-legales.html' ? 'yearly' : 'monthly';
+const priority = (f) => f === 'index.html' ? '1.0' : f === 'blog.html' ? '0.8' : serviceFiles.includes(f) || f === 'catalogue.html' ? '0.9' : f.startsWith('projet-') || f === 'realisations.html' || f === 'dakar.html' || f === 'thies.html' || f === 'tivaouane.html' ? '0.8' : /404|mentions-legales/.test(f) ? '0.3' : '0.6';
+const changefreq = (f) => f === 'index.html' || f === 'catalogue.html' || f === 'blog.html' ? 'weekly' : f === 'mentions-legales.html' ? 'yearly' : 'monthly';
 const urlEntries = allPages.fr
-  .filter((f) => f !== '404.html')
+  .filter((f) => f !== '404.html' && !f.startsWith('blog-'))
   .flatMap((f) => {
     const p = f === 'index.html' ? '' : f;
     const fr = `${company.url}/${p}`;
@@ -496,6 +521,14 @@ const urlEntries = allPages.fr
     const alt = `    <xhtml:link rel="alternate" hreflang="fr" href="${fr}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${en}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${fr}" />`;
     return [fr, en].map((loc) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq(f)}</changefreq>\n    <priority>${priority(f)}</priority>\n${alt}\n  </url>`);
   });
+// Articles : slugs différents en FR et EN → appariés par rang (mêmes articles, même ordre).
+blogFr.forEach((fa, i) => {
+  const ea = blogEn[i];
+  const fr = `${company.url}/blog-${fa.slug}.html`;
+  const en = `${company.url}/en/blog-${ea.slug}.html`;
+  const alt = `    <xhtml:link rel="alternate" hreflang="fr" href="${fr}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${en}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${fr}" />`;
+  [[fr, fa.date], [en, ea.date]].forEach(([loc, d]) => urlEntries.push(`  <url>\n    <loc>${loc}</loc>\n    <lastmod>${d}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n${alt}\n  </url>`));
+});
 writeFileSync(new URL('./public/sitemap.xml', import.meta.url), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urlEntries.join('\n')}\n</urlset>\n`);
 
 writeFileSync(new URL('./public/robots.txt', import.meta.url), `# Robots.txt — SOLARIG Technology
@@ -549,12 +582,17 @@ ${projects.map((p) => `- **${p.title}** (${p.place}) : ${p.summary} ${company.ur
 Clients : ${projects.length ? 'Senico, Patisen, Terranga Farms Sénégal, GRIPS, MP Energy, Tumiqui Japon' : ''}.
 Partenaires et institutions : Senelec, ANER, ISEP Thiès, Eranove, Felicity Solar, SolarX, Infranergy, Afreenergy, Deye.
 
+## Blog — guides pratiques
+
+${blogFr.map((a) => `- [${a.title}](${company.url}/blog-${a.slug}.html) — ${a.excerpt}`).join('\n')}
+
 ## Pages utiles
 
 - [Accueil](${company.url}/)
 - [Catalogue](${company.url}/catalogue.html)
 - [Pompage solaire et outil de pré-dimensionnement](${company.url}/pompage-solaire.html#simulateur)
 - [Réalisations](${company.url}/realisations.html)
+- [Blog](${company.url}/blog.html)
 - [FAQ](${company.url}/faq.html)
 - [Agence de Dakar](${company.url}/dakar.html) · [Agence de Thiès](${company.url}/thies.html) · [Agence de Tivaouane](${company.url}/tivaouane.html)
 - [Contact et devis](${company.url}/contact.html)

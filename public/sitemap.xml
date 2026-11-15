@@ -342,4 +342,166 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/mentions-legales.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/mentions-legales.html" />
   </url>
+  <url>
+    <loc>https://www.solarig.sn/blog.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-choisir-pompe-solaire-forage-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-choisir-pompe-solaire-forage-guide.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-choose-solar-pump-borehole-guide.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-choisir-pompe-solaire-forage-guide.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-choose-solar-pump-borehole-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-choisir-pompe-solaire-forage-guide.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-choose-solar-pump-borehole-guide.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-choisir-pompe-solaire-forage-guide.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-pompe-ac-dc-hybride-difference.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-pompe-ac-dc-hybride-difference.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-ac-dc-hybrid-solar-pump-difference.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-pompe-ac-dc-hybride-difference.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-ac-dc-hybrid-solar-pump-difference.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-pompe-ac-dc-hybride-difference.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-ac-dc-hybrid-solar-pump-difference.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-pompe-ac-dc-hybride-difference.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-dimensionner-pompage-solaire-exemple-chiffre.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-dimensionner-pompage-solaire-exemple-chiffre.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-size-solar-pumping-worked-example.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-dimensionner-pompage-solaire-exemple-chiffre.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-size-solar-pumping-worked-example.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-dimensionner-pompage-solaire-exemple-chiffre.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-size-solar-pumping-worked-example.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-dimensionner-pompage-solaire-exemple-chiffre.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-stocker-eau-ou-batterie-pompage-solaire.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-stocker-eau-ou-batterie-pompage-solaire.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-store-water-or-batteries-solar-pumping.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-stocker-eau-ou-batterie-pompage-solaire.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-store-water-or-batteries-solar-pumping.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-stocker-eau-ou-batterie-pompage-solaire.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-store-water-or-batteries-solar-pumping.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-stocker-eau-ou-batterie-pompage-solaire.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-besoins-en-eau-maraichage-elevage-pompage-solaire.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-besoins-en-eau-maraichage-elevage-pompage-solaire.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-water-needs-market-gardening-livestock-solar-pumping.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-besoins-en-eau-maraichage-elevage-pompage-solaire.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-water-needs-market-gardening-livestock-solar-pumping.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-besoins-en-eau-maraichage-elevage-pompage-solaire.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-water-needs-market-gardening-livestock-solar-pumping.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-besoins-en-eau-maraichage-elevage-pompage-solaire.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-installation-solaire-residentielle-onduleur-hybride-batterie-lithium.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-installation-solaire-residentielle-onduleur-hybride-batterie-lithium.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-residential-solar-hybrid-inverter-lithium-battery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-installation-solaire-residentielle-onduleur-hybride-batterie-lithium.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-residential-solar-hybrid-inverter-lithium-battery.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-installation-solaire-residentielle-onduleur-hybride-batterie-lithium.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-residential-solar-hybrid-inverter-lithium-battery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-installation-solaire-residentielle-onduleur-hybride-batterie-lithium.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-panneaux-solaires-bifaciaux-avantages.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-panneaux-solaires-bifaciaux-avantages.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-bifacial-solar-panels-benefits.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-panneaux-solaires-bifaciaux-avantages.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-bifacial-solar-panels-benefits.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-panneaux-solaires-bifaciaux-avantages.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-bifacial-solar-panels-benefits.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-panneaux-solaires-bifaciaux-avantages.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/blog-colonnes-pvc-cables-submersibles-entretien-forage.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-colonnes-pvc-cables-submersibles-entretien-forage.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-pvc-column-pipes-submersible-cables-maintenance-borehole.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-colonnes-pvc-cables-submersibles-entretien-forage.html" />
+  </url>
+  <url>
+    <loc>https://www.solarig.sn/en/blog-pvc-column-pipes-submersible-cables-maintenance-borehole.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.solarig.sn/blog-colonnes-pvc-cables-submersibles-entretien-forage.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.solarig.sn/en/blog-pvc-column-pipes-submersible-cables-maintenance-borehole.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.solarig.sn/blog-colonnes-pvc-cables-submersibles-entretien-forage.html" />
+  </url>
 </urlset>

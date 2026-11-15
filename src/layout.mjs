@@ -62,8 +62,8 @@ const nav = () => [
   { label: 'Contact', href: 'contact.html', key: 'contact' },
 ];
 
-function header(active, file) {
-  const other = lang === 'en' ? `../${file}` : `en/${file}`;
+function header(active, file, alt) {
+  const other = lang === 'en' ? `../${alt?.fr || file}` : `en/${alt?.en || file}`;
   const langLink = (cls) => lang === 'en'
     ? `<a class="${cls}" href="${other}" hreflang="fr" lang="fr" title="Version française">FR</a>`
     : `<a class="${cls}" href="${other}" hreflang="en" lang="en" title="English version">EN</a>`;
@@ -134,7 +134,7 @@ function footer() {
     </div>
     <div class="f-bottom">
       <p>© <span data-year>2026</span> ${company.legal} · RCCM ${company.rccm} · NINEA ${company.ninea}. ${t('Tous droits réservés.', 'All rights reserved.')}</p>
-      <ul><li><a href="a-propos.html">${t('À propos', 'About')}</a></li><li><a href="faq.html">FAQ</a></li><li><a href="dakar.html">Dakar</a></li><li><a href="thies.html">Thiès</a></li><li><a href="tivaouane.html">Tivaouane</a></li><li><a href="mentions-legales.html">${t('Mentions légales', 'Legal notice')}</a></li></ul>
+      <ul><li><a href="a-propos.html">${t('À propos', 'About')}</a></li><li><a href="blog.html">Blog</a></li><li><a href="faq.html">FAQ</a></li><li><a href="dakar.html">Dakar</a></li><li><a href="thies.html">Thiès</a></li><li><a href="tivaouane.html">Tivaouane</a></li><li><a href="mentions-legales.html">${t('Mentions légales', 'Legal notice')}</a></li></ul>
     </div>
   </div>
 </footer>
@@ -243,6 +243,35 @@ export function catalogueJsonLd() {
   });
 }
 
+export function articleJsonLd(a) {
+  const prefix = `${company.url}${lang === 'en' ? '/en' : ''}`;
+  const url = `${prefix}/blog-${a.slug}.html`;
+  const docs = [{
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: a.title,
+    name: a.title,
+    description: a.excerpt,
+    image: `${company.url}/assets/img/${a.image}.webp`,
+    datePublished: a.date,
+    dateModified: a.date,
+    inLanguage: lang,
+    keywords: [...(a.tags || []), a.keyword].filter(Boolean).join(', '),
+    author: { '@id': `${company.url}/#organization` },
+    publisher: { '@id': `${company.url}/#organization` },
+    mainEntityOfPage: url,
+    url,
+  }];
+  if (a.faq?.length) {
+    docs.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: a.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+    });
+  }
+  return JSON.stringify(docs);
+}
+
 export function projectJsonLd(p) {
   return JSON.stringify({
     '@context': 'https://schema.org',
@@ -258,11 +287,11 @@ export function projectJsonLd(p) {
   });
 }
 
-export function page({ file, title, description, active, body, image = null, home = false, noindex = false, ld = null }) {
+export function page({ file, title, description, active, body, image = null, home = false, noindex = false, ld = null, alt = null }) {
   const fullTitle = home ? title : `${title} | SOLARIG`;
-  const path = file === 'index.html' ? '' : file;
-  const urlFr = `${company.url}/${path}`;
-  const urlEn = `${company.url}/en/${path}`;
+  const pathOf = (f) => (f === 'index.html' ? '' : f);
+  const urlFr = `${company.url}/${pathOf(alt?.fr || file)}`;
+  const urlEn = `${company.url}/en/${pathOf(alt?.en || file)}`;
   const canonical = lang === 'en' ? urlEn : urlFr;
   const ogImage = image ? `${company.url}/assets/img/${image}.webp` : `${company.url}/assets/brand/og.jpg`;
   const css = INLINE_CSS.replaceAll('{{BASE}}', base());
@@ -302,7 +331,7 @@ ${home ? `<script type="application/ld+json">${jsonLd()}</script>` : ''}
 ${ld ? `<script type="application/ld+json">${ld}</script>` : ''}
 </head>
 <body>
-${header(active, file)}
+${header(active, file, alt)}
 <main id="contenu">
 ${body}
 </main>
