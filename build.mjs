@@ -5,7 +5,7 @@ import { page, icon, esc, waLink, asset, setInlineCss, breadcrumbJsonLd, faqPage
 import {
   homeHero, ticker, solutionsSection, productCard, productDialog, compareTable, featuredProducts, sizer, whySection,
   statsBand, projectCard, projectsSection, videoCard, gallery, stepsSection, partnersSection, ceoBlock, ctaBand,
-  faqGroups, lightboxShell, pageHero, kicker, picture, projectVisual, postCard, blogTeaser, blogIndexBody, articleBody,
+  faqGroups, lightboxShell, pageHero, kicker, picture, projectVisual, postCard, blogTeaser, blogIndexBody, articleBody, fieldKit,
 } from './src/components.mjs';
 import { getArticles, blogFr, blogEn } from './src/blog.mjs';
 import { imgPreload } from './src/components.mjs';
@@ -80,8 +80,8 @@ function buildPages() {
     'import-fourniture': ['pompe-hybride-1500', 'cables-submersibles', 'colonnes-pvc', 'panneaux-bifaciaux'],
     'etudes-maintenance': [],
   };
-  const afr = projects.find((x) => x.slug === 'pompage-solaire-afriagro');
-  const thi = projects.find((x) => x.slug === 'forage-solaire-thiambene-sambou');
+  const afr = projects.find((x) => x.slug === 'pompage-solaire-afrite-agro');
+  const thi = projects.find((x) => x.slug === 'forage-solaire-thiabenne-samb');
   services.forEach((s, i) => {
     const ps = svcProducts[s.slug];
     const proj = projects.find((x) => x.slug === s.project);
@@ -199,9 +199,9 @@ ${ctaBand()}`,
     active: 'projects',
     image: 'thiambene-3',
     title: t('Nos réalisations', 'Our projects'),
-    description: t('Forage 100 % solaire de Thiambène Sambou, pompage de Keur Momar Sarr, centrales des agences CBAO, installation hybride de Diamaguène : les réalisations de SOLARIG.', 'The 100% solar borehole in Thiambène Sambou, Keur Momar Sarr pumping, CBAO branch plants, Diamaguène hybrid installation: SOLARIG projects.'),
+    description: t('Forage 100 % solaire de Thiabénne Samb, pompage de Keur Momar Sarr, centrales des agences CBAO, installation hybride de Diamaguène : les réalisations de SOLARIG.', 'The 100% solar borehole in Thiabénne Samb, Keur Momar Sarr pumping, CBAO branch plants, Diamaguène hybrid installation: SOLARIG projects.'),
     ld: crumbLd([[t('Réalisations', 'Projects'), 'realisations.html']]),
-    body: `${pageHero({ kickerText: t('Réalisations', 'Projects'), title: t('Des installations qui produisent déjà au soleil.', 'Installations already producing with the sun.'), lead: t('Forages et pompages solaires, installations hybrides, centrales d’agences bancaires : chaque projet est étudié, installé et mis en service par nos équipes.', 'Solar boreholes and pumping, hybrid installations, bank-branch plants: every project is studied, installed and commissioned by our teams.'), image: 'thiambene-3', alt: t('Champ solaire au sol et technicien SOLARIG à Thiambène Sambou', 'Ground-mounted array and SOLARIG technician in Thiambène Sambou'), crumbs: [[t('Réalisations', 'Projects')]], actions: false })}
+    body: `${pageHero({ kickerText: t('Réalisations', 'Projects'), title: t('Des installations qui produisent déjà au soleil.', 'Installations already producing with the sun.'), lead: t('Forages et pompages solaires, installations hybrides, centrales d’agences bancaires : chaque projet est étudié, installé et mis en service par nos équipes.', 'Solar boreholes and pumping, hybrid installations, bank-branch plants: every project is studied, installed and commissioned by our teams.'), image: 'thiambene-3', alt: t('Champ solaire au sol et technicien SOLARIG à Thiabénne Samb', 'Ground-mounted array and SOLARIG technician in Thiabénne Samb'), crumbs: [[t('Réalisations', 'Projects')]], actions: false })}
 <section class="section">
   <div class="wrap">
     <div class="proj-grid">${projects.map(projectCard).join('')}</div>
@@ -307,6 +307,7 @@ ${lightboxShell()}`,
   </div>
 </section>
 ${ceoBlock().replace('section-mist', '')}
+${fieldKit()}
 ${statsBand()}
 <section class="section">
   <div class="wrap">
@@ -316,7 +317,8 @@ ${statsBand()}
 </section>
 ${stepsSection()}
 ${partnersSection()}
-${ctaBand()}`,
+${ctaBand()}
+${lightboxShell()}`,
   });
 
   // ---------- Contact ----------

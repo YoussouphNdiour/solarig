@@ -12,6 +12,14 @@ RewriteCond %{HTTP_HOST} ^solarig\.sn$ [NC]
 RewriteRule ^ https://www.solarig.sn%{REQUEST_URI} [L,R=301]
 </IfModule>
 
+# Anciennes adresses des pages de réalisations (noms de chantiers corrigés)
+<IfModule mod_alias.c>
+Redirect 301 /projet-forage-solaire-thiambene-sambou.html /projet-forage-solaire-thiabenne-samb.html
+Redirect 301 /projet-pompage-solaire-afriagro.html /projet-pompage-solaire-afrite-agro.html
+Redirect 301 /en/projet-forage-solaire-thiambene-sambou.html /en/projet-forage-solaire-thiabenne-samb.html
+Redirect 301 /en/projet-pompage-solaire-afriagro.html /en/projet-pompage-solaire-afrite-agro.html
+</IfModule>
+
 <IfModule mod_mime.c>
 AddType image/webp .webp
 AddType font/woff2 .woff2

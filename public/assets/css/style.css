@@ -616,3 +616,12 @@ input[type='range'] { width: 100%; accent-color: var(--green); height: 28px; }
   .art-toc { position: static; padding: 18px 20px; background: var(--mist); border-radius: var(--r-sm); }
   .art-cover img { aspect-ratio: 16 / 9; }
 }
+
+/* ---------- Tenue et véhicules ---------- */
+.kit figure { margin: 0; overflow: hidden; border-radius: var(--r); background: #0d1511; border: 1px solid var(--sage); }
+.kit figure a { display: block; }
+.kit figure img { width: 100%; height: auto; transition: transform 0.6s var(--ease); }
+.kit figure a:hover img { transform: scale(1.02); }
+.kit figcaption { padding: 14px 22px; background: #fff; font-family: var(--font-d); font-weight: 600; font-size: 14px; color: var(--forest); }
+.kit-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+@media (max-width: 760px) { .kit-pair { grid-template-columns: 1fr; } }

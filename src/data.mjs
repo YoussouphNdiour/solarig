@@ -54,7 +54,7 @@ function build() {
         'A borehole, a basin or a field to irrigate: we size, supply and install the complete solar pumping system, from the panels to the wellhead, with no diesel and no electricity bill.'
       ),
       image: 'champ-afriagro',
-      imageAlt: t('Champ solaire au sol alimentant un pompage, photographié pendant le chantier Afriagro', 'Ground-mounted solar array powering a pumping system during the Afriagro project'),
+      imageAlt: t('Champ solaire au sol alimentant un pompage, photographié pendant le chantier Afrite Agro', 'Ground-mounted solar array powering a pumping system during the Afrite Agro project'),
       offers: [
         [t('Étude et test de débit', 'Study and flow test'), t("Relevé du besoin en eau, niveau dynamique, hauteur manométrique : on dimensionne la pompe et le champ solaire au plus juste.", 'Water need, dynamic level and head survey: we size the pump and the solar array precisely.')],
         [t('Pompes solaires immergées', 'Submersible solar pumps'), t("Hybrides AC/DC de 1 500 W à 22 kW, pompes DC 3 000 W, pompes de forage 7,5 et 11 kW : fonctionnent au soleil ou sur secteur selon le modèle.", 'Hybrid AC/DC from 1,500 W to 22 kW, 3,000 W DC pumps, 7.5 and 11 kW borehole pumps: they run on sun or mains depending on the model.')],
@@ -70,7 +70,7 @@ function build() {
         t('Entreprises de forage et d\'hydraulique', 'Drilling and water engineering companies'),
       ],
       gallery: ['afriagro-2', 'thiambene-tete-forage', 'afriagro-6', 'thiambene-3'],
-      project: 'pompage-solaire-afriagro',
+      project: 'pompage-solaire-afrite-agro',
     },
     {
       slug: 'installation-solaire',
@@ -389,18 +389,18 @@ function build() {
   // Champs optionnels : image (sinon visuel chiffré `visual`), equipment, sites, challenge/solution/result, gallery, videos.
   projects = [
     {
-      slug: 'forage-solaire-thiambene-sambou',
-      title: t('Forage 100 % solaire à Thiambène Sambou', '100% solar borehole in Thiambène Sambou'),
-      shortTitle: t('Forage solaire Thiambène Sambou', 'Thiambène Sambou solar borehole'),
+      slug: 'forage-solaire-thiabenne-samb',
+      title: t('Forage 100 % solaire à Thiabénne Samb', '100% solar borehole in Thiabénne Samb'),
+      shortTitle: t('Forage solaire Thiabénne Samb', 'Thiabénne Samb solar borehole'),
       category: t('Forage solaire', 'Solar borehole'),
-      place: t('Thiambène Sambou, vers Pékesse', 'Thiambène Sambou, near Pékesse'),
+      place: t('Thiabénne Samb, vers Pékesse', 'Thiabénne Samb, near Pékesse'),
       image: 'thiambene-3',
       summary: t(
         "Un forage alimenté à 100 % par le soleil : 48 panneaux de 580 W (27,84 kWc), pompe hybride de 13 kW avec son contrôleur, supports et coffret de protection.",
         'A borehole powered 100% by the sun: 48 panels of 580 W (27.84 kWp), a 13 kW hybrid pump with its controller, supports and protection box.'
       ),
       specs: [
-        [t('Localité', 'Location'), t('Thiambène Sambou, vers Pékesse', 'Thiambène Sambou, near Pékesse')],
+        [t('Localité', 'Location'), t('Thiabénne Samb, vers Pékesse', 'Thiabénne Samb, near Pékesse')],
         [t('Champ solaire', 'Solar array'), '48 × 580 W (27,84 kWc)'],
         [t('Pompe', 'Pump'), t('Hybride 13 kW + contrôleur', 'Hybrid 13 kW + controller')],
         [t('Énergie', 'Energy'), t('100 % solaire', '100% solar')],
@@ -430,25 +430,25 @@ function build() {
       ],
     },
     {
-      slug: 'pompage-solaire-afriagro',
-      title: t('Pompage solaire Afriagro', 'Afriagro solar pumping'),
-      shortTitle: t('Pompage solaire Afriagro', 'Afriagro solar pumping'),
+      slug: 'pompage-solaire-afrite-agro',
+      title: t('Pompage solaire Afrite Agro', 'Afrite Agro solar pumping'),
+      shortTitle: t('Pompage solaire Afrite Agro', 'Afrite Agro solar pumping'),
       category: t('Pompage solaire', 'Solar pumping'),
       place: 'Sénégal',
       image: 'champ-afriagro',
       summary: t(
-        "Champ solaire au sol et pompage solaire installés pour Afriagro : structures, panneaux, raccordement et essais de débit à la sortie du forage.",
-        'Ground-mounted solar array and solar pumping installed for Afriagro: structures, panels, wiring and flow tests at the borehole outlet.'
+        "Champ solaire au sol et pompage solaire installés pour Afrite Agro : structures, panneaux, raccordement et essais de débit à la sortie du forage.",
+        'Ground-mounted solar array and solar pumping installed for Afrite Agro: structures, panels, wiring and flow tests at the borehole outlet.'
       ),
       specs: [
-        [t('Client', 'Client'), 'Afriagro'],
+        [t('Client', 'Client'), 'Afrite Agro'],
         [t('Type', 'Type'), t('Pompage solaire', 'Solar pumping')],
         [t('Installation', 'Installation'), t('Champ solaire au sol', 'Ground-mounted array')],
         [t('Mise en service', 'Commissioning'), t('Essais de débit filmés', 'Flow tests filmed')],
       ],
       challenge: t(
-        "Mettre en place un pompage alimenté par le soleil pour répondre aux besoins en eau d'Afriagro.",
-        "Set up a sun-powered pumping system to meet Afriagro's water needs."
+        "Mettre en place un pompage alimenté par le soleil pour répondre aux besoins en eau d'Afrite Agro.",
+        "Set up a sun-powered pumping system to meet Afrite Agro's water needs."
       ),
       solution: t(
         "Pose des structures en acier au sol, montage et câblage du champ de panneaux, équipement de la tête de forage et raccordement de la pompe solaire, avec les équipes SOLARIG sur le terrain du premier trou de scellement à la mise en eau.",
@@ -607,8 +607,8 @@ function build() {
           t("Une pompe DC se branche directement sur le champ solaire. Une pompe AC (comme les 4SD12/32 et 6SP46/7) fonctionne sur secteur, groupe ou onduleur de pompage. Une pompe hybride AC/DC accepte les deux sources : solaire en journée, secteur au besoin.",
             "A DC pump connects straight to the solar array. An AC pump (such as the 4SD12/32 and 6SP46/7) runs on mains, a generator or a pumping inverter. A hybrid AC/DC pump accepts both: solar by day, mains when needed.")],
         [t("Pouvez-vous équiper un forage existant ?", "Can you equip an existing borehole?"),
-          t("Oui. Nous mesurons le niveau dynamique et le débit, puis proposons la pompe, les colonnes PVC, le câble submersible et le champ solaire adaptés — comme sur le forage de Thiambène Sambou.",
-            "Yes. We measure the dynamic level and yield, then propose the right pump, PVC column pipes, submersible cable and solar array — as on the Thiambène Sambou borehole.")],
+          t("Oui. Nous mesurons le niveau dynamique et le débit, puis proposons la pompe, les colonnes PVC, le câble submersible et le champ solaire adaptés — comme sur le forage de Thiabénne Samb.",
+            "Yes. We measure the dynamic level and yield, then propose the right pump, PVC column pipes, submersible cable and solar array — as on the Thiabénne Samb borehole.")],
       ],
     },
     {
@@ -687,7 +687,7 @@ function build() {
       ],
       faq: [
         [t("Où se trouve l'agence de Thiès ?", 'Where is the Thiès office?'), t("À Parcelles Unité 5, Hersent, Rue 17, Thiès. Appelez le +221 76 440 97 04 avant de venir.", 'At Parcelles Unité 5, Hersent, Rue 17, Thiès. Call +221 76 440 97 04 before visiting.')],
-        [t('Avez-vous déjà équipé des forages dans la région ?', 'Have you already equipped boreholes in the region?'), t("Oui, voir le <a href=\"projet-forage-solaire-thiambene-sambou.html\">forage 100 % solaire de Thiambène Sambou</a> le <a href=\"projet-pompage-solaire-afriagro.html\">pompage solaire Afriagro</a> et l'<a href=\"projet-installation-solaire-hybride-diamaguene.html\">installation hybride de Diamaguène</a>.", 'Yes, see the <a href="projet-forage-solaire-thiambene-sambou.html">100% solar borehole in Thiambène Sambou</a>, the <a href="projet-pompage-solaire-afriagro.html">Afriagro solar pumping</a> and the <a href="projet-installation-solaire-hybride-diamaguene.html">Diamaguène hybrid installation</a>.')],
+        [t('Avez-vous déjà équipé des forages dans la région ?', 'Have you already equipped boreholes in the region?'), t("Oui, voir le <a href=\"projet-forage-solaire-thiabenne-samb.html\">forage 100 % solaire de Thiabénne Samb</a> le <a href=\"projet-pompage-solaire-afrite-agro.html\">pompage solaire Afrite Agro</a> et l'<a href=\"projet-installation-solaire-hybride-diamaguene.html\">installation hybride de Diamaguène</a>.", 'Yes, see the <a href="projet-forage-solaire-thiabenne-samb.html">100% solar borehole in Thiabénne Samb</a>, the <a href="projet-pompage-solaire-afrite-agro.html">Afrite Agro solar pumping</a> and the <a href="projet-installation-solaire-hybride-diamaguene.html">Diamaguène hybrid installation</a>.')],
       ],
     },
     {

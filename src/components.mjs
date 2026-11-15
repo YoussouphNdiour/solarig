@@ -73,7 +73,7 @@ export function homeHero() {
       <div class="hero-rays" aria-hidden="true"></div>
       <div class="arch">${picture('champ-afriagro', t('Champ solaire au sol et pompage installés par SOLARIG', 'Ground-mounted solar array and pumping installed by SOLARIG'), { eager: true, sizes: '(min-width: 900px) 520px, 100vw' })}</div>
       <div class="float-card fc-a">${icon('drop')}<div><small>${t('Pompe hybride AC/DC', 'Hybrid AC/DC pump')}</small><strong>${nb('16 m³/h · 70 m')}</strong></div></div>
-      <div class="float-card fc-b">${icon('sun')}<div><small>${t('Forage 100 % solaire', '100% solar borehole')}</small><strong>Thiambène Sambou</strong></div></div>
+      <div class="float-card fc-b">${icon('sun')}<div><small>${t('Forage 100 % solaire', '100% solar borehole')}</small><strong>Thiabénne Samb</strong></div></div>
     </div>
   </div>
 </section>`;
@@ -358,6 +358,24 @@ export function ceoBlock() {
       <ul class="chips-static">${company.ownerTitles.map((x) => `<li>${x}</li>`).join('')}</ul>
       <p>${t("Expert senior en énergie et ingénieur consultant, Matar GUEYE dirige SOLARIG et supervise le dimensionnement des projets de pompage et d'énergie solaire.", 'A senior energy expert and consulting engineer, Matar GUEYE leads SOLARIG and oversees the sizing of pumping and solar energy projects.')}</p>
     </div>
+  </div>
+</section>`;
+}
+
+export function fieldKit() {
+  const fig = (name, alt, cap, sizes) => `<figure data-reveal><a href="${imgSrc(name)}" data-lightbox aria-label="${t('Agrandir', 'Enlarge')} : ${esc(cap)}">${picture(name, alt, { sizes })}</a><figcaption>${esc(cap)}</figcaption></figure>`;
+  return `<section class="section kit">
+  <div class="wrap">
+    <div class="section-head">
+      <div>${kicker(t('Sur le terrain', 'In the field'))}<h2>${t('Une équipe équipée, des véhicules aux couleurs de SOLARIG.', 'A well-equipped team, vehicles in SOLARIG colours.')}</h2></div>
+      <p class="section-intro">${t("Tenue de chantier haute visibilité et habillage des pick-up : une équipe facile à identifier sur les chantiers.", 'High-visibility work gear and pick-up livery: a team that is easy to recognise on site.')}</p>
+    </div>
+    ${fig('tenue-epi', t('Tenue de chantier SOLARIG : veste, casquette et pantalon vert et orange haute visibilité', 'SOLARIG work gear: green and high-visibility orange jacket, cap and trousers'), t('Tenue de chantier SOLARIG', 'SOLARIG work gear'), '(min-width: 1300px) 1200px, 100vw')}
+    <div class="kit-pair">
+      ${fig('pickup-ford-2', t('Pick-up Ford habillé aux couleurs de SOLARIG, vues de trois quarts et de côté', 'Ford pick-up in SOLARIG livery, three-quarter and side views'), t('Habillage du pick-up SOLARIG', 'SOLARIG pick-up livery'), '(min-width: 760px) 590px, 100vw')}
+      ${fig('pickup-ford-3', t('Planche de six vues du pick-up SOLARIG : dessus avec panneau solaire, face, arrière et profil', 'Sheet of six views of the SOLARIG pick-up: top with solar panel, front, rear and profile'), t('Le pick-up SOLARIG : dessus, face, arrière et profil', 'The SOLARIG pick-up: top, front, rear and profile'), '(min-width: 760px) 590px, 100vw')}
+    </div>
+    ${fig('pickup-ford-1', t('Planche technique de l\'habillage du pick-up SOLARIG : dessus, face, arrière et côtés, sur fond noir', 'Technical sheet of the SOLARIG pick-up livery: top, front, rear and sides, on black'), t("Planche technique de l'habillage", 'Technical sheet of the livery'), '(min-width: 1300px) 1200px, 100vw').replace('<figure data-reveal>', '<figure class="kit-sheet" data-reveal>')}
   </div>
 </section>`;
 }
