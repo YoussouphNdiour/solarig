@@ -1,0 +1,241 @@
+{
+"afriagro-2": {
+"w": 2000,
+"h": 1500,
+"dir": "img",
+"s": 800
+},
+"afriagro-3": {
+"w": 2000,
+"h": 1500,
+"dir": "img",
+"s": 800
+},
+"afriagro-4": {
+"w": 2000,
+"h": 1500,
+"dir": "img",
+"s": 800
+},
+"afriagro-5": {
+"w": 2000,
+"h": 1500,
+"dir": "img",
+"s": 800
+},
+"afriagro-6": {
+"w": 2000,
+"h": 1500,
+"dir": "img",
+"s": 800
+},
+"afriagro-fouille": {
+"w": 1650,
+"h": 2200,
+"dir": "img",
+"s": 800
+},
+"afriagro-structure": {
+"w": 1650,
+"h": 2200,
+"dir": "img",
+"s": 800
+},
+"ambiance-champ-solaire": {
+"w": 1024,
+"h": 690,
+"dir": "img",
+"s": 800
+},
+"champ-afriagro": {
+"w": 2000,
+"h": 1500,
+"dir": "img",
+"s": 800
+},
+"colonnes-pvc-reel": {
+"w": 660,
+"h": 1080,
+"dir": "img"
+},
+"matar-gueye": {
+"w": 1000,
+"h": 1000,
+"dir": "img"
+},
+"onduleurs-installation": {
+"w": 720,
+"h": 960,
+"dir": "img"
+},
+"onduleurs-local": {
+"w": 720,
+"h": 720,
+"dir": "img"
+},
+"poster-afriagro-champ-solaire": {
+"w": 640,
+"h": 368,
+"dir": "img"
+},
+"poster-afriagro-debit": {
+"w": 368,
+"h": 656,
+"dir": "img"
+},
+"poster-afriagro-mise-en-service": {
+"w": 368,
+"h": 656,
+"dir": "img"
+},
+"poster-thiambene-champ-solaire": {
+"w": 720,
+"h": 1280,
+"dir": "img"
+},
+"prod-cable": {
+"w": 388,
+"h": 580,
+"dir": "img"
+},
+"prod-colonnes": {
+"w": 534,
+"h": 448,
+"dir": "img"
+},
+"prod-panneaux": {
+"w": 1024,
+"h": 644,
+"dir": "img",
+"s": 800
+},
+"prod-pompe-dc-3000": {
+"w": 236,
+"h": 670,
+"dir": "img"
+},
+"prod-pompe-forage-4sd": {
+"w": 85,
+"h": 410,
+"dir": "img"
+},
+"prod-pompe-forage-6sp": {
+"w": 200,
+"h": 660,
+"dir": "img"
+},
+"prod-pompe-hybride-1500": {
+"w": 604,
+"h": 1090,
+"dir": "img"
+},
+"prod-pompe-hybride-ac-dc": {
+"w": 236,
+"h": 396,
+"dir": "img"
+},
+"prod-pompe-piscine": {
+"w": 604,
+"h": 980,
+"dir": "img"
+},
+"technicien-local": {
+"w": 813,
+"h": 1080,
+"dir": "img"
+},
+"thiambene-1": {
+"w": 1242,
+"h": 2208,
+"dir": "img",
+"s": 800
+},
+"thiambene-2": {
+"w": 1800,
+"h": 2400,
+"dir": "img",
+"s": 800
+},
+"thiambene-3": {
+"w": 1800,
+"h": 2400,
+"dir": "img",
+"s": 800
+},
+"thiambene-4": {
+"w": 1800,
+"h": 2400,
+"dir": "img",
+"s": 800
+},
+"thiambene-5": {
+"w": 1800,
+"h": 2400,
+"dir": "img",
+"s": 800
+},
+"thiambene-pose-panneau": {
+"w": 720,
+"h": 1280,
+"dir": "img"
+},
+"thiambene-tete-forage": {
+"w": 810,
+"h": 1080,
+"dir": "img"
+},
+"fiche-cables-submersibles": {
+"w": 800,
+"h": 960,
+"dir": "fiches"
+},
+"fiche-colonnes-pvc": {
+"w": 784,
+"h": 960,
+"dir": "fiches"
+},
+"fiche-installation-agricole": {
+"w": 1024,
+"h": 1536,
+"dir": "fiches",
+"s": 800
+},
+"fiche-panneaux-bifaciaux": {
+"w": 1024,
+"h": 1536,
+"dir": "fiches",
+"s": 800
+},
+"fiche-pompe-dc-3000": {
+"w": 640,
+"h": 960,
+"dir": "fiches"
+},
+"fiche-pompe-forage-4sd": {
+"w": 640,
+"h": 960,
+"dir": "fiches"
+},
+"fiche-pompe-forage-6sp": {
+"w": 640,
+"h": 960,
+"dir": "fiches"
+},
+"fiche-pompe-hybride-1500": {
+"w": 1024,
+"h": 1536,
+"dir": "fiches",
+"s": 800
+},
+"fiche-pompe-hybride-ac-dc": {
+"w": 960,
+"h": 640,
+"dir": "fiches"
+},
+"fiche-pompe-piscine": {
+"w": 1024,
+"h": 1536,
+"dir": "fiches",
+"s": 800
+}
+}

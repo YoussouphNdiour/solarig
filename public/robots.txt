@@ -1,0 +1,18 @@
+# Robots.txt — SOLARIG Technology
+User-agent: *
+Allow: /
+
+# Les assistants d'IA générative sont les bienvenus : le catalogue et les fiches sont publics.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.solarig.sn/sitemap.xml
